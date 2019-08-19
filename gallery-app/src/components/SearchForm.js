@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import {Route} from 'react-router-dom';
 
 export default class SearchForm extends Component {
 
@@ -17,6 +16,7 @@ export default class SearchForm extends Component {
         e.currentTarget.reset();
         let path = `search/${this.state.searchText}`;
         console.log(path);
+        
     }
 
     render() {

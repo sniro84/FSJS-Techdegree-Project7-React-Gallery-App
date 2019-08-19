@@ -4,8 +4,9 @@ import Header from './Header';
 import PhotoContainer from './PhotoContainer';
 import SearchForm from './SearchForm';
 import Nav from './Nav';
-import {BrowserRouter, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter, Route ,Redirect} from 'react-router-dom';
 import '../css/index.css';
+
 
 export default class App extends Component {
   constructor() {
@@ -38,7 +39,7 @@ export default class App extends Component {
         <BrowserRouter>
           <div className="container">
               <Header/>
-              <SearchForm onSearch={this.performSearch}/> 
+              <Route to="/" render={ (props) => <SearchForm {...props} onSearch={this.performSearch} /> } />
 
               <nav className="main-nav">
                   <Nav performSearch={this.performSearch} /> 
@@ -62,5 +63,4 @@ export default class App extends Component {
 
 
 }
-
 
