@@ -3,6 +3,8 @@ import apiKey from '../config'
 import Header from './Header';
 import PhotoContainer from './PhotoContainer';
 import SearchForm from './SearchForm';
+import Nav from './Nav';
+import {BrowserRouter, Route, Redirect} from 'react-router-dom';
 import '../css/index.css';
 
 export default class App extends Component {
@@ -33,23 +35,27 @@ export default class App extends Component {
 
   render() {
     return(
-        <div className="container">
-            <Header/>
-            <SearchForm onSearch={this.performSearch}/>
+        <BrowserRouter>
+          <div className="container">
+              <Header/>
+              <SearchForm onSearch={this.performSearch}/> 
 
-            <div className="photo-container">
+              <nav className="main-nav">
+                  <Nav performSearch={this.performSearch} /> 
+              </nav>
 
-              {
-                (this.state.loading)
-                ? <h3> Loading... </h3>
-                : <PhotoContainer data={this.state.images} />
-              }
-              
-              
-              
-                       
-            </div> 
-        </div>
+              <div className="photo-container">
+                {
+                  (this.state.loading)
+                  ? <h3> Loading... </h3>
+                  : <PhotoContainer data={this.state.images} />    
+                }
+                <Redirect to='/sunsets' />
+                   
+              </div>
+
+          </div>
+        </BrowserRouter>
     );
   }
 
