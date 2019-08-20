@@ -13,16 +13,17 @@ export default class App extends Component {
     super();
     this.state = {
       images: [],
+      defaultCategory : "sunsets" ,
       loading: true
     };
-
+  
   }
 
   componentDidMount() {
       this.performSearch();
   }
 
-  performSearch = (query = 'sunsets') => {
+  performSearch = ( query = this.state.defaultCategory ) => {
     const api = `https://www.flickr.com/services/rest/?method=flickr.photos.search&per_page=16&format=json&nojsoncallback=1&safe_search=1&api_key=${apiKey}&text=${query}`;
     fetch(api)
       .then(res => res.json())
@@ -39,10 +40,10 @@ export default class App extends Component {
         <BrowserRouter>
           <div className="container">
               <Header/>
-              <Route to="/" render={ (props) => <SearchForm {...props} onSearch={this.performSearch} /> } />
+              <Route render={ (props) => <SearchForm {...props} onSearch={this.performSearch} /> } />
 
               <nav className="main-nav">
-                  <Nav performSearch={this.performSearch} /> 
+                  <Nav performSearch={this.performSearch} />       
               </nav>
 
               <div className="photo-container">
@@ -51,8 +52,9 @@ export default class App extends Component {
                   ? <h3> Loading... </h3>
                   : <PhotoContainer data={this.state.images} />    
                 }
-                <Redirect to='/sunsets' />
-                   
+                
+                <Redirect to={`/${this.state.defaultCategory}`} />  
+   
               </div>
 
           </div>
