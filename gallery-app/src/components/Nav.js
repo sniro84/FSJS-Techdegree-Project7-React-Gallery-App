@@ -10,14 +10,12 @@ const Nav = (props) => (
                      onClick={ () => props.performSearch("sunsets")} > Sunsets 
                 </NavLink>
             </li>
-
             <li>
                 <NavLink 
                      to="/waterfalls"
                      onClick={ () => props.performSearch("waterfalls")} > Waterfalls 
                 </NavLink> 
             </li>
-
             <li>
                 <NavLink
                      to="/rainbows"

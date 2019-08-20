@@ -38,5 +38,4 @@ export default class SearchForm extends Component {
             </form>
         );
     }
-
 }
