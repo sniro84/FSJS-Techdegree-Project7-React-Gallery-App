@@ -3,6 +3,7 @@ import apiKey from '../config'
 import Header from './Header';
 import PhotoContainer from './PhotoContainer';
 import SearchForm from './SearchForm';
+// import Error404 from './Error404';
 import Nav from './Nav';
 import {BrowserRouter, Route ,Redirect} from 'react-router-dom';
 import '../css/index.css';
@@ -38,9 +39,10 @@ export default class App extends Component {
   render() {
     return(
         <BrowserRouter>
+          
           <div className="container">
               <Header/>
-              <Route render={ (props) => <SearchForm {...props} onSearch={this.performSearch} /> } />
+              <Route path="/" render={ (props) => <SearchForm {...props} onSearch={this.performSearch} /> } />
 
               <nav className="main-nav">
                   <Nav performSearch={this.performSearch} />       
@@ -54,10 +56,11 @@ export default class App extends Component {
                 }
                 
                 <Redirect to={`/${this.state.defaultCategory}`} />  
-   
+                {/* <Route component={Error404}/> */}
               </div>
 
           </div>
+          
         </BrowserRouter>
     );
   }
