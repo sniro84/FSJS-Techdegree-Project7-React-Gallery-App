@@ -1,3 +1,15 @@
+Project #7 - React Gallery App
+
+Seventh project in the FullStack JavaScript Techdegree.
+
+Description: A gallery of images with navigation links and a search feature.
+
+CSS changes : Background gradients, Titles fonts and colors.
+
+Topics: React Basics, React Router, API
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
