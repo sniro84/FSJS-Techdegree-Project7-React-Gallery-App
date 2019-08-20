@@ -1,4 +1,4 @@
-Project #7 - React Gallery App
+# Project #7 - React Gallery App
 
 Seventh project in the FullStack JavaScript Techdegree.
 
