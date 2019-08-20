@@ -5,7 +5,7 @@ import PhotoContainer from './PhotoContainer';
 import SearchForm from './SearchForm';
 // import Error404 from './Error404';
 import Nav from './Nav';
-import {BrowserRouter, Route ,Redirect} from 'react-router-dom';
+import {BrowserRouter, Route ,Redirect, Switch} from 'react-router-dom';
 import '../css/index.css';
 
 
@@ -43,7 +43,6 @@ export default class App extends Component {
           <div className="container">
               <Header/>
               <Route path="/" render={ (props) => <SearchForm {...props} onSearch={this.performSearch} /> } />
-
               <nav className="main-nav">
                   <Nav performSearch={this.performSearch} />       
               </nav>
@@ -52,13 +51,25 @@ export default class App extends Component {
                 {
                   (this.state.loading)
                   ? <h3> Loading... </h3>
-                  : <PhotoContainer data={this.state.images} />    
+                  : <PhotoContainer data={this.state.images} /> 
                 }
                 
-                <Redirect to={`/${this.state.defaultCategory}`} />  
-                {/* <Route component={Error404}/> */}
-              </div>
+                <Switch>
+                    <Route path="/" render={ () => <Redirect to={`/${this.state.defaultCategory}`} /> } /> 
+                    {/* <Route component={Error404}/> */}
+                </Switch>
 
+                
+
+                  
+                   
+                     
+                
+                
+                
+
+              </div>
+              
           </div>
           
         </BrowserRouter>
